@@ -1,0 +1,72 @@
+﻿@model Dictionary<string,List<MiniProject.ViewModel.ViewRegisteredUser>>
+
+@{
+    ViewData["Title"] = "ViewAll";
+}
+
+<h1>ViewAll</h1>
+
+ @foreach(var item in Model)
+            {
+                int p=0;
+               <th>
+                  
+                City Name-           
+                @Html.DisplayFor(modelItem => item.Key)
+              </th>
+
+<table border="2" bordercolor="green">
+    
+
+        <td>
+        <tr>
+            <th>
+                Serial No.
+                <th/>
+            </th>
+            <th>
+                    Full Name
+            </th>
+
+            <th>
+                    Email Id
+            </th>
+            <th>
+                   Gender
+            </th>
+            <th>
+                    Phone Number
+            </th>
+        <tr />
+          
+              @foreach(var i in item.Value)
+                {
+                    p++;
+                    <tr>
+                    <td>
+                        @p
+                    </td>
+                    <td>
+                                @Html.DisplayFor(modelItem => i.FullName)
+                    </td>
+
+                    <td>
+                                @Html.DisplayFor(modelItem => i.EmailId)
+                    </td>
+                    <td>
+                                @Html.DisplayFor(modelItem => i.Gender)
+                    </td>
+                    <td>
+                                @Html.DisplayFor(modelItem => i.PhoneNumber)
+                    </td>
+                </tr>
+
+          
+              }
+         <td/>
+                
+        
+</table>
+
+ }           
+  

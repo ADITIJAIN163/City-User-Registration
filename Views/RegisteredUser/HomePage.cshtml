@@ -1,0 +1,25 @@
+﻿@model MiniProject.Models.RegisteredUser
+
+@{
+    ViewData["Title"] = "HomePage";
+}
+@inject IHttpContextAccessor httpcontextaccessor
+<div>
+
+    @{
+        string name=httpcontextaccessor.HttpContext.Session.GetString("FN");
+       
+        string name1 = ViewBag.cF;
+    }
+
+</div>
+
+<div>
+    
+    <h1>Welcome @name  @name1</h1>
+
+
+
+    <a asp-action="UpdateProfile">UpdateProfile</a>
+</div>
+<partial name="LogOut" />

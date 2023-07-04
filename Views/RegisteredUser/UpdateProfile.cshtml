@@ -1,0 +1,58 @@
+﻿@model MiniProject.ViewModel.ViewRegisteredUser
+
+@{
+    ViewData["Title"] = "UpdateProfile";
+}
+
+<h1>UpdateProfile</h1>
+
+<h4>ViewRegisteredUser</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateProfile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+           
+            <div class="form-group">
+                <label asp-for="LoginName" class="control-label"></label>
+                <input asp-for="LoginName" class="form-control" readonly="true" />
+                <span asp-validation-for="LoginName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            
+            Gender<br />
+            @Html.RadioButton("Gender","Male")Male<br />
+            @Html.RadioButton("Gender","Female")Female<br />
+            @Html.RadioButton("Gender","Others")Others<br />
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <br />
+            Cities @Html.DropDownListFor(model => model.CityId,Model.Citydropdown)
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@ViewBag.Message
+<div>
+   
+    <a asp-action="HomePage">Back to HomePage</a>
+</div>
+<partial name="LogOut" />
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
